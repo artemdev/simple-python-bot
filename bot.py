@@ -1,5 +1,4 @@
 from utils.config import SUPPORTED_EXIT_COMMANDS, ALL_SUPPORTED_COMMANDS, SUPPORTED_TERMINATION_COMMANDS
-
 from utils.decorators import input_error, register_command, handlers
 
 store = {
@@ -57,6 +56,7 @@ def show_all():
 
 def validate_command(command):
     """ Checks if user typed command supported by script """
+    print('validate command', command)
     filtered_commands = list(filter(
         lambda valid_command: command in valid_command, ALL_SUPPORTED_COMMANDS))
 
@@ -70,7 +70,7 @@ def main():
         user_input = input('Please enter command: ').lower()
 
         valid_command = validate_command(user_input.split(' ')[0])
-
+        print('valid_command', valid_command)
         if not valid_command:
             print(
                 'Please enter one of the following commands: add, change, phone, show all, good bye, close, exit, .')
