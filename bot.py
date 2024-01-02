@@ -18,7 +18,7 @@ def hello():
 def add(name, phone_number):
     """ Adds new contact to contacts store """
     if store.get(name):
-        raise KeyError('Contact not found')
+        raise KeyError('Contact already exists')
     else:
         store[name] = phone_number
         print(f'Added {name} with {phone_number}')
@@ -84,7 +84,8 @@ def main():
             break
 
         command_args = user_input.split(valid_command)[-1].strip()
-        command_args_list = [part for part in command_args.split(' ') if part]
+        command_args_list = [
+            command for command in command_args.split(' ') if command]
 
         if handlers.get(valid_command):
             handlers[valid_command](*command_args_list)
