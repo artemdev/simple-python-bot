@@ -1,1 +1,2 @@
-# This bot runs in infinite loop and manages list of phone numbers
+# CLI contacts book
+  - Store and manage contacts using simple CLI
